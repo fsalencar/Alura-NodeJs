@@ -1,10 +1,6 @@
-var express = require('express');
-var app = express();
+var app = require('./config/express')();
+var rotasProdutos = require('./app/routes/produtos')(app);
 
-app.get('/produtos',function(req,res){
-  res.send("<html><body><h1>Listagem de Produtos</h1></body></html>")});
-  
 app.listen(3000,function(){
-  console.log("Servidor on!");
-
-})
+    console.log("Servidor on!");
+});
