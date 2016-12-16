@@ -1,19 +1,22 @@
 module.exports = function(app) {
-  app.get('/produtos',function(req,res){
-      var mysql = require ('mysql');
-      var connection = mysql.createConnection({
-          host : 'localhost',
-          user : 'root',
-          password : 'LipeOwna0000',
-          database : 'topper'
-      });
+    app.get('/produtos', function(req, res) {
 
-      connection.query('select * from livros',function(err,result){
-          res.render('produtos/lista',{lista:result});
-      });
+        //colocar as credenciais do banco em variaveis de ambiente ou arquivos de configuração
+        let mysql = require('mysql'),
+            connection = mysql.createConnection({
+                host: 'localhost',
+                user: 'root',
+                password: 'LipeOwna0000',
+                database: 'topper'
+            });
 
-      connection.end();
-      //consultando
-      //  res.render("produtos/lista");
-  });
+        //aplicar camada de persistência
+        connection.query('select * from livros', function(err, result) {
+            res.render('produtos/lista', {
+                lista: result
+            });
+        });
+
+        connection.end();
+    });
 }
