@@ -1,1 +1,3 @@
-Iniciando os estudos em node, pelo alura.
+# Iniciando os estudos em node, pelo alura
+
+- npm install
