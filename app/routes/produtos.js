@@ -5,12 +5,16 @@
 module.exports = function(app) {
     app.get('/produtos', function(req, res) {
       let connection = app.infra.connectionFactory();
-
+      let produtosBanco = app.infra.produtosBanco;
         //aplicar camada de persistência
-        connection.query('SELECT * FROM livros', function(err, result) {
-            res.render('produtos/lista', {lista: result});
+        produtosBanco.lista(connection,function(err,result) {
+            res.render('produtos/lista',{lista:result});
         });
 
         connection.end();
     });
+
+  //  app.get('produtos/remove',function(){
+  //  produtosBanco.carrega(connection,id,callback);
+//  });
 }
