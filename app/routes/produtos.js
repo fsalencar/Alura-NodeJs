@@ -5,16 +5,20 @@
 module.exports = function(app) {
     app.get('/produtos', function(req, res) {
       let connection = app.infra.connectionFactory();
-      let produtosBanco = app.infra.produtosBanco;
+      let produtosBanco = app.infra.produtosBanco(connection);
         //aplicar camada de persistência
-        produtosBanco.lista(connection,function(err,result) {
+        produtosBanco.lista(function(err,result) {
             res.render('produtos/lista',{lista:result});
         });
-        console.log("passou")
         connection.end();
     });
 
     app.get('produtos/remove',function(){
-    produtosBanco.carrega(connection,id,callback);
+    let connection = app.infra.connectionFactory();
+    let produtosBanco = app.infra.produtosBanco(connection);
+    let produto = produtosBanco.carrega(id,callback);
+    if(produto){
+      produtosBanco.remove(connection,produto,callback);
+    }
   });
 }

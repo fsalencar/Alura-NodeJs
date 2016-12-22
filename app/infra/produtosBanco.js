@@ -1,9 +1,14 @@
 'use strict'
 
 module.exports = function(){
-        this.lista = function(connection,callback){
+  return function(connection){
+        this.lista = function(callback){
             connection.query('select * from livros',callback);
             console.log("Topper")
             }
+          //  this.lista = function(callback){
+        //        connection.query('select * from livros',callback);
+      //        }
             return this;
+          }
 }
