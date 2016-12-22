@@ -10,11 +10,11 @@ module.exports = function(app) {
         produtosBanco.lista(connection,function(err,result) {
             res.render('produtos/lista',{lista:result});
         });
-
+        console.log("passou")
         connection.end();
     });
 
-  //  app.get('produtos/remove',function(){
-  //  produtosBanco.carrega(connection,id,callback);
-//  });
+    app.get('produtos/remove',function(){
+    produtosBanco.carrega(connection,id,callback);
+  });
 }

@@ -1,3 +1,4 @@
+'use strict'
 
 //colocar as credenciais do banco em variaveis de ambiente ou arquivos de configuração
 let mysql = require('mysql');
