@@ -16,14 +16,3 @@ ProdutosDAO.prototype.salva = function(produto,callback){
 module.exports = function(){
   return ProdutosDAO;
 }
-
-
-
-
-//return function(connection){
-//  this.
-    //  this.lista = function(callback){
-  //        connection.query('select * from livros',callback);
-//        }
-//      return this;
-//    }

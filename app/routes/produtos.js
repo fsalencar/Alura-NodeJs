@@ -29,13 +29,3 @@ module.exports = function(app) {
       });
     });
   }
-
-//    app.get('produtos/remove',function(){
-//    let connection = app.infra.connectionFactory();
-//    let produtosBanco = app.infra.produtosDAO(connection);
-//    let produto = produtosBanco.carrega(id,callback);
-//      if(produto){
-//        produtosBanco.remove(connection,produto,callback);
-//      }
-//  });
-//}
