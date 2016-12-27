@@ -7,6 +7,15 @@ module.exports = function(app) {
       let connection = app.infra.connectionFactory();
       let produtosDAO = new app.infra.produtosDAO(connection);
       produtosDAO.lista(function(err,result) {
+            res.format({
+              html: function(){
+                    res.render('produtos/lista',{lista:result});
+              },
+              json:function(){
+                res.json(result)
+              }
+
+            });
             res.render('produtos/lista',{lista:result});
         });
         connection.end();
@@ -24,6 +33,7 @@ module.exports = function(app) {
       let connection = app.infra.connectionFactory();
       let produtosDAO = new app.infra.produtosDAO(connection);
       produtosDAO.salva(produto,function(err,result){
+        console.log(err);
      res.redirect('/produtos');
     //    listaProdutos(req,res);
       });
