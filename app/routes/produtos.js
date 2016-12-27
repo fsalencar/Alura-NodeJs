@@ -17,7 +17,7 @@ module.exports = function(app) {
     app.get('/produtos/form',function(req,res){
         res.render('produtos/form')
     });
-    app.post('/produtos/salva',function(req,res){
+    app.post('/produtos',function(req,res){
 
       let produto = req.body;
     //  console.log(produto);
