@@ -21,7 +21,7 @@ let client = http.request(configuracoes,function(res){
 });
 
 var produto = {
-  titulo : 'Capoeira de Gaucho',
+  titulo : '',
   descricao: 'Topper',
   preco:100
 };
