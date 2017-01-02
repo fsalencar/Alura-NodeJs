@@ -39,7 +39,7 @@ module.exports = function(app) {
                               },
                         json:function(){
                               res.status(400).json(errosJson)
-                              }
+                            }
                       });
           return;
       }
