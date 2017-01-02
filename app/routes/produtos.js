@@ -12,7 +12,6 @@ module.exports = function(app) {
               json:function(){
                 res.json(result)
               }
-
             });
             res.render('produtos/lista',{lista:result});
         });
@@ -24,15 +23,15 @@ module.exports = function(app) {
     app.get('/produtos/form',function(req,res){
         res.render('produtos/form',{errosValidacao:{},produto:{}});
     });
-    app.post('/produtos',function(req,res){
 
+    app.post('/produtos',function(req,res){
       let produto = req.body;
 
         req.assert('titulo', 'Titulo do livro é obrigatório!').notEmpty();
         req.assert('preco','Formato de preço Inválido!').isFloat();
         req.assert('descricao', 'Insira algo na descrição para facilitar o entendimento do livro!').notEmpty();
 
-      var errosJson = req.validationErrors();
+      let errosJson = req.validationErrors();
       if (errosJson) {
                       res.format({
                         html: function(){
@@ -41,9 +40,7 @@ module.exports = function(app) {
                         json:function(){
                               res.status(400).json(errosJson)
                               }
-
                       });
-
           return;
       }
 
