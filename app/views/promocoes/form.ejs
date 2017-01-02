@@ -10,13 +10,13 @@
         <input type="text" name="mensagem" value=""/>
       </div>
         <div>
-          <select name="produtos[id]">
-              <%for(var i=0;i<lista.lenght;i++){%>
+          <select name="<livros[id]>">
+              <%for(var i=0;i<lista.length;i++){%>
                 <option value="<%=lista[i].id%>"><%=lista[i].titulo%></option>
               <%}%>
           </select>
         </div>
-      <input type="submit" value="Cadastrar Promoção">
+      <input type="submit" value="Cadastrar Promoção"/>
     </form>
 
   </body>
